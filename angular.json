@@ -69,12 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "moviesearch:build:production",
-              "port": 8080
+              "browserTarget": "moviesearch:build:production"
             },
             "development": {
-              "browserTarget": "moviesearch:build:development",
-              "port": 8080
+              "browserTarget": "moviesearch:build:development"
             }
           },
           "defaultConfiguration": "development"
