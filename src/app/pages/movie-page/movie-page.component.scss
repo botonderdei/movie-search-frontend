@@ -1,0 +1,104 @@
+.background-image {
+  background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(#333333, 1)), url('../../../assets/images/movies-background.png');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.typewriter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.welcome{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-message {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .typewriter {
+    text-align: center;
+  }
+
+  .welcome{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .welcome-message {
+    font-size: 1.5rem;
+  }
+}
+
+/* .background-image h1{
+  font-size: 45px;
+}
+
+.typewriter p {
+  flex: 1;
+  font-size: 24px;
+  overflow: hidden;
+  border-right: .30em solid white;
+  white-space: nowrap;
+  letter-spacing: .15em;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+} */
+
+.button-row{
+  margin: 15px;
+}
+
+.form-control{
+  margin-right: 5px;
+}
+
+.server{
+  background-color: green;
+  color: white;
+}
+
+.api{
+  background-color: red;
+  color: white;
+}
+
+.paginator{
+  margin-top: 50px;
+  width: fit-content;
+}
+
+::ng-deep .mat-mdc-paginator-container{
+  background-color: #333333;
+}
+
+::ng-deep .mat-mdc-paginator-page-size-value{
+  padding: 5px;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions{
+  border: solid 1px black !important;
+  color: #333333;
+  border-radius: 5px;
+  background-color: white;
+}

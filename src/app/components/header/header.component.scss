@@ -1,0 +1,23 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 999;
+  color: white;
+}
+
+.horizontal-spacer {
+  flex: 1 1 auto;
+}
+
+.header.transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.header:not(.transparent) {
+  background-color: #212121;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

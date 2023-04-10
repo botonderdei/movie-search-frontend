@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: Movie Search API
+  description: |-
+    This is a simple movie search API, with caching. 
+  version: 1.0.0
+servers:
+  - url: http://localhost:2999
+paths:
+  /v1/movies:
+    get:
+      tags:
+        - movies
+      summary: List movies by keyword
+      description: List movies by keyword, with pagination. 
+      operationId: list-movies
+      parameters: 
+        - name: query
+          in: query
+          description: Search string, http encoded. 
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            example: 'Thor love and thunder'
+        - name: page
+          in: query
+          description: Page number used for pagination (Defaults to 1). 
+          required: false
+          schema:
+            type: number
+            minimum: 1
+            example: 1
+        - name: language
+          in: query
+          description: Language for the result. (Defaults to "en"). 
+          required: false
+          schema:
+            type: string
+            example: 'hu'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMovies'
+        '400':
+          description: Invalid request. 
+components:
+  schemas:
+    PaginatedMovies:
+      required:
+        - page
+        - total_pages
+        - total_results
+        - cache_hit
+        - cached_at
+        - results
+      type: object
+      properties:
+        page:
+          type: integer
+          example: 1
+        total_pages:
+          type: integer
+          example: 1
+        total_results:
+          type: integer
+          example: 1
+        cache_hit:
+          type: integer
+          example: 0
+        cached_at:
+          type: integer
+          example: 1680437045630
+        results:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Movie'
+    Movie:
+      type: object
+      required:
+        - id
+        - overview
+        - popularity
+        - poster_path
+        - release_date
+        - title
+        - video
+        - vote_average
+        - vote_count
+      properties:
+        id:
+          type: integer
+          example: 616037
+        adult:
+          type: boolean
+          example: false
+        backdrop_path:
+          type: string
+          example: /jsoz1HlxczSuTx0mDl2h0lxy36l.jpg
+        genre_ids:
+          type: array
+          items:
+            type: integer
+          example: 
+            - 14
+            - 28
+            - 35
+        original_language:
+          type: string
+          example: en
+        original_title:
+          type: string
+          example: 'Thor: Love and Thunder'
+        overview:
+          type: string
+          example: 'After his retirement is interrupted by Gorr the God Butcher, a galactic killer who seeks the extinction of the gods, Thor Odinson enlists the help of King Valkyrie, Korg, and ex-girlfriend Jane Foster, who now wields Mjolnir as the Mighty Thor. Together they embark upon a harrowing cosmic adventure to uncover the mystery of the God Butcher’s vengeance and stop him before it’s too late.'
+        popularity:
+          type: number
+          example: 422.705
+        poster_path:
+          type: string
+          example: '/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg'
+        release_date:
+          type: string
+          format: date
+          example: '2022-07-06'
+        title:
+          type: string
+          example: 'Thor: Love and Thunder'
+        video:
+          type: boolean
+          example: false
+        vote_average:
+          type: number
+          example: 6.608
+        vote_count:
+          type: integer
+          example: 5672

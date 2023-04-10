@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+*,::after,::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: #333333;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-out 0s;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}

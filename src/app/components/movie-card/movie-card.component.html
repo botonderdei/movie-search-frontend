@@ -1,0 +1,24 @@
+<div class="image">
+  <img
+    *ngIf="movie.poster_path"
+    class="poster"
+    [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + movie.poster_path"
+    class="card-img-top"
+    [alt]="movie.title"
+  />
+  <img
+    *ngIf="!movie.poster_path"
+    class="poster"
+    [src]="
+      'https://storage.sg.content-cdn.io/cdn-cgi/image/width=1000,height=1500,quality=75,format=auto/in-resources/8845e144-8902-4204-b80f-9dc7dc2f4bcb/Images/ProductImages/Source/No_Image.jpg'
+    "
+    class="card-img-top"
+    [alt]="movie.title"
+  />
+  <div class="image-overlay image-overlay-blur">
+    <div class="image-title">{{ movie.title }}</div>
+    <p class="image-description">
+      {{ movie.overview }}
+    </p>
+  </div>
+</div>
