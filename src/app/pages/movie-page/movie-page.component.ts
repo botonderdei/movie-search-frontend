@@ -46,12 +46,10 @@ export class MoviePageComponent implements OnInit {
 
     this.page$.subscribe((page) => {
       this.currentPage = page;
-      console.log('Current Page:', this.currentPage);
     });
 
     this.query$.subscribe((query) => {
       this.currentQuery = query;
-      console.log(this.currentQuery);
     });
 
     this.sharedService.buttonPressed$.subscribe((pressed) => {
@@ -60,7 +58,6 @@ export class MoviePageComponent implements OnInit {
 
     this.loading$.subscribe((load) => {
       this.loading = load;
-      console.log(this.loading);
     });
   }
 
